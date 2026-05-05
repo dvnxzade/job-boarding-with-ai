@@ -1,0 +1,78 @@
+# =========================
+
+# Python / Django
+
+# =========================
+
+**pycache**/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Django logs
+
+*.log
+
+# =========================
+
+# Virtual Environment
+
+# =========================
+
+venv/
+.env/
+.env
+
+# =========================
+
+# Environment variables
+
+# =========================
+
+*.env
+
+# =========================
+
+# Node / React
+
+# =========================
+
+node_modules/
+dist/
+build/
+.cache/
+
+# Logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+
+# OS / Editor junk
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# VS Code
+
+.vscode/
+
+# JetBrains (PyCharm, WebStorm, etc.)
+
+.idea/
+
+# =========================
+
+# Misc
+
+# =========================
+
+coverage/
+*.coverage
+htmlcov/
