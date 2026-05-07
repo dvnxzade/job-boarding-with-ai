@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from .managers import UserManager
 
 # Create your models here.
 
@@ -12,11 +13,13 @@ class User(AbstractUser):
     username = None
 
     email = models.EmailField(unique=True)
-    status = models.BooleanField(choices=ACCOUNT_STATUS_CHOICES)
+    status = models.BooleanField(choices=ACCOUNT_STATUS_CHOICES , default=0)
     email_verified = models.BooleanField(default=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    objects = UserManager()
 
     def __str__(self):
         return self.email
@@ -61,7 +64,7 @@ class Application(models.Model):
     applicant = models.ForeignKey(User , on_delete=models.CASCADE)
     cover_letter = models.TextField(blank=True)
     cv_file = models.FileField(upload_to=user_cv_path)
-    status = models.CharField(choices=STATUS_CHOICES)
+    status = models.CharField(choices=STATUS_CHOICES , default="applied")
     applied_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     relevancy_score = models.FloatField(blank=True , null=True)

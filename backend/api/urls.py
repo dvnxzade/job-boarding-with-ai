@@ -1,9 +1,7 @@
 from django.urls import path
-from .views import home
-from django.conf import settings
-from django.conf.urls.static import static
-
+from .views import JobListView , ApplyToJobView
 
 urlpatterns = [
-    path("" , home)
-] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
+    path("jobs/<int:id>/apply" , ApplyToJobView.as_view()),
+    path("jobs/" , JobListView.as_view())
+] 
